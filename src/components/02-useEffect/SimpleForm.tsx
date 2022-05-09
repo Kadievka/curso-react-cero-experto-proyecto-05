@@ -11,24 +11,24 @@ const SimpleForm = () => {
 
   const { name, email } = formState;
 
-  //Cada vez que algo cambie, se ejecuta
+  // //Cada vez que algo cambie, se ejecuta
+  // // useEffect(()=>{
+  // //   console.log("hey!")
+  // // });
+
+  // //Al enviarle un array vacío de dependencia, sólo se ejecutará una sola vez
   // useEffect(()=>{
   //   console.log("hey!")
-  // });
+  // }, []);
 
-  //Al enviarle un array vacío de dependencia, sólo se ejecutará una sola vez
-  useEffect(()=>{
-    console.log("hey!")
-  }, []);
+  // //Si quiero que algo esté escuchando un cambio, se recomienda pasar al array de dependencias ese estado
+  // useEffect(()=>{
+  //   console.log("formState cambió")
+  // }, [formState]);
 
-  //Si quiero que algo esté escuchando un cambio, se recomienda pasar al array de dependencias ese estado
-  useEffect(()=>{
-    console.log("formState cambió")
-  }, [formState]);
-
-  useEffect(()=>{
-    console.log("email cambió")
-  }, [email]);
+  // useEffect(()=>{
+  //   console.log("email cambió")
+  // }, [email]);
 
   const handleInputChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
     console.log(target.name, target.value);

@@ -11,13 +11,13 @@ const MultipleCustomHooks = () => {
   const { counter, increment, decrement, reset } = useCounter(INITIAL_STATE);
 
   const { loading, data } = useFetch(counter < INITIAL_STATE ? `https://www.breakingbadapi.com/api/quotes/1`: `https://www.breakingbadapi.com/api/quotes/${counter}`);
-  console.log({ loading, data }, counter)
+  // console.log({ loading, data }, counter)
 
   const { author, quote } = data ? {...data[0]} : {author: '', quote: ''};
 
   useEffect(()=>{
     (counter < INITIAL_STATE) && reset();
-  }, [counter]);
+  }, [counter, reset]);
 
   return (
     <div>

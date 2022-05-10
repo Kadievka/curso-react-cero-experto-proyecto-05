@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import "./effects.css";
 import { useForm } from '../../hooks/useForm';
 

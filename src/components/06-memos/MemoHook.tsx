@@ -1,18 +1,23 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
+import procesoPesado from '../../helpers/procesoPesado';
 import { useCounter } from '../../hooks/useCounter';
 import './effects.css';
-import Small from './Small';
 
-const Memorize = () => {
+const MemoHook = () => {
 
-  const { counter, increment } = useCounter(10);
+  const { counter, increment } = useCounter(500);
 
   const [show, setShow] = useState(false);
 
+  useMemo(() => procesoPesado(counter), [counter]);
+
   return (
     <div>
-      <h1>Counter: <Small value={counter} /> </h1>
+      <h1>MemoHook</h1>
+      <h3>Counter: <small> { counter } </small> </h3>
       <hr />
+
+      <p> { procesoPesado(counter) } </p>
 
       <button
         className="btn btn-outline-primary"
@@ -34,4 +39,4 @@ const Memorize = () => {
   )
 }
 
-export default Memorize;
+export default MemoHook;

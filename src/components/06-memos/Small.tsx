@@ -13,4 +13,4 @@ const Small = memo(({ value }: SmallInputInterface) => {
   )
 });
 
-export default Small
+export default Small;

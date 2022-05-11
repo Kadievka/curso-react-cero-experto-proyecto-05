@@ -7,19 +7,25 @@ export interface TodoStateInterface {
 
 export interface TodoActionInterface {
   type: string,
-  payload: Record<string, string>,
+  payload: TodoStateInterface,
+}
+
+export const actionTypes: Record<string, string> = {
+  ADD: "add",
+  DELETE: "delete",
+  EDIT: "edit",
 }
 
 const todoReducer = (state: TodoStateInterface[] = [], action: TodoActionInterface) => {
 
   switch (action.type) {
-    case "add":
+    case actionTypes.ADD:
       console.log("Estoy en add new todo", state)
-      break;
-    case "delete":
+      return [...state, action.payload]
+    case actionTypes.DELETE:
       console.log("Estoy en delete todo", state)
     break;
-      case "edit":
+      case actionTypes.EDIT:
     console.log("Estoy en edit todo", state)
     break;
     default:

@@ -1,8 +1,6 @@
 import React, { useReducer } from 'react'
 import "./styles.css";
-import todoReducer, { TodoStateInterface } from './todoReducer';
-
-
+import todoReducer, { TodoStateInterface, actionTypes, TodoActionInterface } from './todoReducer';
 
 const TodoApp = () => {
 
@@ -12,9 +10,28 @@ const TodoApp = () => {
     done: false,
   }];
 
-  const [todos] = useReducer(todoReducer, initialState);
+  const [todos, dispatch] = useReducer(todoReducer, initialState);
 
   console.log(todos);
+
+  const handleSubmit = (e: React.FormEvent) => {
+
+    e.preventDefault();
+
+    const newTodo: TodoStateInterface = {
+      id: new Date().getTime(),
+      description: "Nueva tarea",
+      done: false,
+    };
+
+    const action: TodoActionInterface = {
+      type: actionTypes.ADD,
+      payload: newTodo
+    }
+
+    dispatch(action);
+  }
+
 
   return (
     <div>
@@ -52,7 +69,7 @@ const TodoApp = () => {
           <h4>Agregar TODO</h4>
           <hr />
 
-          <form>
+          <form onSubmit={handleSubmit}>
             <input
               autoComplete="off"
               className="form-control"
@@ -62,6 +79,7 @@ const TodoApp = () => {
             />
             <button
               className="btn btn-outline-primary mt-1 w-100"
+              type="submit"
             >
               Agregar
             </button>

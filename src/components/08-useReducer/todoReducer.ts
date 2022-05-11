@@ -20,7 +20,7 @@ const todoReducer = (state: TodoStateInterface[] = [], action: TodoActionInterfa
 
   switch (action.type) {
     case actionTypes.ADD:
-      console.log("Estoy en add new todo", state)
+      // console.log("Estoy en add new todo", state)
       return [...state, action.payload]
     case actionTypes.DELETE:
       console.log("Estoy en delete todo", state)

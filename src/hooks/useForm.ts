@@ -6,7 +6,7 @@ export const useForm = (initialState: any = {} ) => {
 
   const handleInputChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
 
-    console.log(target.name, target.value);
+    //console.log(target.name, target.value);
 
     setValues(() => ({
       ...values,
@@ -15,5 +15,9 @@ export const useForm = (initialState: any = {} ) => {
 
   }
 
-  return [ values, handleInputChange];
+  const resetAllValues = () => {
+    setValues(initialState);
+  }
+
+  return [ values, handleInputChange, resetAllValues];
 }

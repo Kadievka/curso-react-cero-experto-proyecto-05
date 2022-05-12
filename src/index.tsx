@@ -16,13 +16,14 @@ import Memorize from './components/06-memos/Memorize';
 import MemoHook from './components/06-memos/MemoHook';
 import CallbackHook from './components/06-memos/CallbackHook';
 import { Padre } from './components/07-tarea-memo/Padre';
+import TodoApp from './components/08-useReducer/TodoApp';
 
 */
-import TodoApp from './components/08-useReducer/TodoApp';
+import Main from './components/09-useContext/Main';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
-root.render(<TodoApp />);
+root.render(<Main />);
 
 //import "./components/08-useReducer/intro-reducer";

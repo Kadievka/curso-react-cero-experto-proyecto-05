@@ -1,14 +1,12 @@
 import React, { useEffect, useReducer } from "react";
-import { useForm } from "../../hooks/useForm";
 import "./styles.css";
+import TodoAdd from "./TodoAdd";
 import TodoList from "./TodoList";
-import todoReducer, {
-  TodoStateInterface,
-  actionTypes,
-  TodoActionInterface,
-} from "./todoReducer";
+import todoReducer, { TodoStateInterface, actionTypes } from "./todoReducer";
 
 const TodoApp = () => {
+  //Reducer init
+
   const initTodos = () => {
     const todosString = localStorage.getItem("todos");
     return todosString
@@ -24,51 +22,37 @@ const TodoApp = () => {
 
   const [todos, dispatch] = useReducer(todoReducer, [], initTodos);
 
-  const initialFormState = {
-    description: "",
-  };
-
-  const [formValues, handleInputChange, resetFormValues] =
-    useForm(initialFormState);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    const newTodo: TodoStateInterface = {
-      id: new Date().getTime(),
-      description: formValues.description,
-      done: false,
-    };
-
-    const action: TodoActionInterface = {
-      type: actionTypes.ADD,
-      payload: newTodo,
-    };
-
-    newTodo.description && dispatch(action);
-
-    resetFormValues(initialFormState);
-  };
-
-  const handleDelete = (todo: TodoStateInterface) => {
-    const action: TodoActionInterface = {
-      type: actionTypes.DELETE,
-      payload: todo,
-    };
-    dispatch(action);
-  };
-
-  const handleComplete = (todo: TodoStateInterface) => {
-    const action: TodoActionInterface = {
-      type: actionTypes.COMPLETE,
-      payload: todo,
-    };
-    dispatch(action);
-  };
+  //LocalStorage save
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
+
+  //Lista
+
+  const handleDelete = (todo: TodoStateInterface) => {
+    dispatch({
+      type: actionTypes.DELETE,
+      payload: todo,
+    });
+  };
+
+  const handleComplete = (todo: TodoStateInterface) => {
+    dispatch({
+      type: actionTypes.COMPLETE,
+      payload: todo,
+    });
+  };
+
+  // Formulario
+
+  const handleAdd = (todo: TodoStateInterface) => {
+    todo.description &&
+      dispatch({
+        type: actionTypes.ADD,
+        payload: todo,
+      });
+  };
 
   return (
     <div>
@@ -82,28 +66,7 @@ const TodoApp = () => {
           handleComplete={handleComplete}
         />
 
-        <div className="col-5">
-          <h4>Agregar TODO</h4>
-          <hr />
-
-          <form onSubmit={handleSubmit}>
-            <input
-              autoComplete="off"
-              className="form-control"
-              name="description"
-              onChange={handleInputChange}
-              placeholder="Aprender ..."
-              type="text"
-              value={formValues.description}
-            />
-            <button
-              className="btn btn-outline-primary mt-1 w-100"
-              type="submit"
-            >
-              Agregar
-            </button>
-          </form>
-        </div>
+        <TodoAdd handleAdd={handleAdd} />
       </div>
     </div>
   );

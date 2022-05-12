@@ -18,8 +18,6 @@ export const actionTypes: Record<string, string> = {
 
 const todoReducer = (state: TodoStateInterface[] = [], action: TodoActionInterface) => {
 
-  let auxState: TodoStateInterface[] = [...state];
-
   switch (action.type) {
     case actionTypes.ADD:
 

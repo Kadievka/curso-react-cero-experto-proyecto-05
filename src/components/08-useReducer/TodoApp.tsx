@@ -9,14 +9,6 @@ import todoReducer, {
 
 const TodoApp = () => {
 
-  // const initialState: TodoStateInterface[] = [{
-  //   id: new Date().getTime(),
-  //   description: "Aprender React",
-  //   done: false,
-  // }];
-
-  // const [todos, dispatch] = useReducer(todoReducer, [initialState]);
-
   const initTodos = () => {
     const todosString = localStorage.getItem("todos");
     return todosString
@@ -31,8 +23,6 @@ const TodoApp = () => {
   };
 
   const [todos, dispatch] = useReducer(todoReducer, [], initTodos);
-
-  //console.log(todos);
 
   const initialFormState = {
     description: "",

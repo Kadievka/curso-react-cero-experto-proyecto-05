@@ -15,6 +15,8 @@ const TodoApp = () => {
   //   done: false,
   // }];
 
+  // const [todos, dispatch] = useReducer(todoReducer, [initialState]);
+
   const initTodos = () => {
     const todosString = localStorage.getItem("todos");
     return todosString
@@ -58,6 +60,22 @@ const TodoApp = () => {
     resetFormValues(initialFormState);
   };
 
+  const handleDelete = (todo: TodoStateInterface) => {
+    const action: TodoActionInterface = {
+      type: actionTypes.DELETE,
+      payload: todo,
+    };
+    dispatch(action);
+  };
+
+  const handleComplete = (todo: TodoStateInterface) => {
+    const action: TodoActionInterface = {
+      type: actionTypes.COMPLETE,
+      payload: todo,
+    };
+    dispatch(action);
+  };
+
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
@@ -70,13 +88,21 @@ const TodoApp = () => {
       <div className="row">
         <div className="col-7">
           <ul className="list-group-flush">
-            {todos?.map(({ id, description }, index) => {
+            {todos?.map((todo, index) => {
               return (
-                <li key={id} className="list-group-item">
-                  <p className="text-center">
-                    {index + 1}. {description}
+                <li key={todo.id} className="list-group-item">
+                  <p
+                    className={ todo.done ? "text-center complete" : "text-center"}
+                    onClick={()=>{handleComplete(todo)}}
+                  >
+                    {index + 1}. {todo.description}
                   </p>
-                  <button className="btn btn-danger">Borrar</button>
+                  <button
+                    className="btn btn-danger"
+                    onClick={()=>{handleDelete(todo)}}
+                  >
+                    Borrar
+                  </button>
                 </li>
               );
             })}

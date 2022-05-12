@@ -20,6 +20,7 @@ const TodoList = ({
         {todos?.map((todo, index) => {
           return (
             <TodoListItem
+              key={todo.id}
               todo={todo}
               index={index}
               handleDelete={handleDelete}

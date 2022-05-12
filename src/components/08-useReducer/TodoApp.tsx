@@ -82,7 +82,7 @@ const TodoApp = () => {
               return (
                 <li key={todo.id} className="list-group-item">
                   <p
-                    className={ todo.done ? "text-center complete" : "text-center"}
+                    className={ "text-center " + (todo.done && "complete")}
                     onClick={()=>{handleComplete(todo)}}
                   >
                     {index + 1}. {todo.description}

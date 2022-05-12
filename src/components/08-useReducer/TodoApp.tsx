@@ -1,6 +1,7 @@
 import React, { useEffect, useReducer } from "react";
 import { useForm } from "../../hooks/useForm";
 import "./styles.css";
+import TodoList from "./TodoList";
 import todoReducer, {
   TodoStateInterface,
   actionTypes,
@@ -8,7 +9,6 @@ import todoReducer, {
 } from "./todoReducer";
 
 const TodoApp = () => {
-
   const initTodos = () => {
     const todosString = localStorage.getItem("todos");
     return todosString
@@ -76,28 +76,11 @@ const TodoApp = () => {
       <hr />
 
       <div className="row">
-        <div className="col-7">
-          <ul className="list-group-flush">
-            {todos?.map((todo, index) => {
-              return (
-                <li key={todo.id} className="list-group-item">
-                  <p
-                    className={ "text-center " + (todo.done && "complete")}
-                    onClick={()=>{handleComplete(todo)}}
-                  >
-                    {index + 1}. {todo.description}
-                  </p>
-                  <button
-                    className="btn btn-danger"
-                    onClick={()=>{handleDelete(todo)}}
-                  >
-                    Borrar
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
+        <TodoList
+          todos={todos}
+          handleDelete={handleDelete}
+          handleComplete={handleComplete}
+        />
 
         <div className="col-5">
           <h4>Agregar TODO</h4>

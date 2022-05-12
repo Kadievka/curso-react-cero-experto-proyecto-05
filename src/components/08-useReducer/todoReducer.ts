@@ -27,11 +27,11 @@ const todoReducer = (
       return state.filter((todo) => todo.id !== action.payload.id);
 
     case actionTypes.COMPLETE:
-      return state.map((todo) =>
+      return state.map((todo) => (
         todo.id === action.payload.id
           ? { ...todo, done: !action.payload.done }
           : todo
-      );
+      ));
   }
   return state;
 };

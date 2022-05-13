@@ -1,8 +1,9 @@
 import { useState } from "react"
+import UseCounterResponseInterface from "../interfaces/UseCounterResponseInterface";
 
-export const useCounter = (initialState = 10) => {
+export const useCounter = (initialState = 10): UseCounterResponseInterface => {
 
-  const [counter, setCounter] = useState(initialState);
+  const [counter, setCounter] = useState<number>(initialState);
 
   const increment = () => {
     setCounter( counter + 1);
@@ -13,7 +14,7 @@ export const useCounter = (initialState = 10) => {
   }
 
   const reset = () => {
-    setCounter(initialState)
+    setCounter(initialState);
   }
 
   return {
@@ -21,5 +22,5 @@ export const useCounter = (initialState = 10) => {
     increment,
     decrement,
     reset,
-  }
+  };
 }

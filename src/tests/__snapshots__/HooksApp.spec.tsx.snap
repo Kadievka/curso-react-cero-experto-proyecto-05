@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HooksApp should show the defined categories 1`] = `
+<DocumentFragment>
+  <div
+    data-testid="hooks-app-container-element"
+  >
+    HooksApp
+  </div>
+</DocumentFragment>
+`;

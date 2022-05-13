@@ -2,7 +2,7 @@ import React from 'react'
 
 const HooksApp = () => {
   return (
-    <div>HooksApp</div>
+    <div data-testid="hooks-app-container-element" >HooksApp</div>
   )
 }
 

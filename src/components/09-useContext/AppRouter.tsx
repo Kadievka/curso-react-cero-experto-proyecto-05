@@ -15,19 +15,20 @@ const AppRouter = () => {
       <div>
 
         <NavBar />
+        <div className="container">
+          <Routes>
 
+            <Route path="/" element={ <HomeScreen /> } />
 
-        <Routes>
+            <Route path="/about" element={ <AboutScreen /> } />
 
-          <Route path="/" element={ <HomeScreen /> } />
+            <Route path="/login" element={ <LoginScreen /> } />
 
-          <Route path="/about" element={ <AboutScreen /> } />
+            <Route path="*" element={ <HomeScreen /> } />
 
-          <Route path="/login" element={ <LoginScreen /> } />
+          </Routes>
+        </div>
 
-          <Route path="*" element={ <HomeScreen /> } />
-
-        </Routes>
       </div>
     </Router>
   )

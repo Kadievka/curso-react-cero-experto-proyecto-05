@@ -1,26 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppRouter from './AppRouter';
+import UserInterface from './interfaces/UserInterface';
 import "./styles.css";
-import {UserContext} from './UserContext';
-
-export interface UserInterface {
-  id: number;
-  name: string,
-  email: string,
-}
+import { UserContext } from './UserContext';
 
 const Main = () => {
 
-  //Ahora estará disponible en todos los componentes
-
-  const user: UserInterface = {
-    id: 1234,
-    name: "Kadievka",
-    email: "example@gmail.com",
-  }
+  const [user, setUser] = useState<UserInterface>();
 
   return (
-    <UserContext.Provider value={user}>
+    <UserContext.Provider value={{
+      user,
+      setUser,
+      temp: 1234
+    }}>
 
       <AppRouter />
 

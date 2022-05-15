@@ -1,7 +1,7 @@
 import React from "react";
+import TodoStateInterface from "../../interfaces/TodoStateInterface";
 import "./styles.css";
 import TodoListItem from "./TodoListItem";
-import { TodoStateInterface } from "./todoReducer";
 
 export interface TodoListPropsInterface {
   todos: TodoStateInterface[];

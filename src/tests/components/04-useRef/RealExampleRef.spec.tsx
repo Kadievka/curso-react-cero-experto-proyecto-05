@@ -6,7 +6,7 @@ import {
   render,
   screen,
 } from "@testing-library/react";
-import RealExampleRef from "../../components/04-useRef/RealExampleRef";
+import RealExampleRef from "../../../components/04-useRef/RealExampleRef";
 
 
 describe('RealExampleRef', () => {

@@ -1,8 +1,10 @@
 import React, { useEffect, useReducer } from "react";
+import { ActionTypesEnum } from "../../enum/ActionTypesEnum";
+import TodoStateInterface from "../../interfaces/TodoStateInterface";
 import "./styles.css";
 import TodoAdd from "./TodoAdd";
 import TodoList from "./TodoList";
-import todoReducer, { TodoStateInterface, actionTypes } from "./todoReducer";
+import todoReducer from "./todoReducer";
 
 const TodoApp = () => {
   //Reducer init
@@ -32,14 +34,14 @@ const TodoApp = () => {
 
   const handleDelete = (todo: TodoStateInterface) => {
     dispatch({
-      type: actionTypes.DELETE,
+      type: ActionTypesEnum.DELETE,
       payload: todo,
     });
   };
 
   const handleComplete = (todo: TodoStateInterface) => {
     dispatch({
-      type: actionTypes.COMPLETE,
+      type: ActionTypesEnum.COMPLETE,
       payload: todo,
     });
   };
@@ -49,7 +51,7 @@ const TodoApp = () => {
   const handleAdd = (todo: TodoStateInterface) => {
     todo.description &&
       dispatch({
-        type: actionTypes.ADD,
+        type: ActionTypesEnum.ADD,
         payload: todo,
       });
   };

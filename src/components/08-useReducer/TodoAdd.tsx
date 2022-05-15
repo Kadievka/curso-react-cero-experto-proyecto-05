@@ -1,7 +1,7 @@
 import React from 'react'
 import { useForm } from '../../hooks/useForm';
+import TodoStateInterface from '../../interfaces/TodoStateInterface';
 import "./styles.css";
-import { TodoStateInterface } from './todoReducer';
 
 export interface TodoAddPropsInterface {
   handleAdd: Function;

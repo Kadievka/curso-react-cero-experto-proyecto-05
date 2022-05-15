@@ -5,9 +5,9 @@ import {
   render,
   screen,
 } from "@testing-library/react";
-import MultipleCustomHooks from "../../components/03-examples/MultipleCustomHooks";
-import BreakinBadApiQuoteInterface from '../../interfaces/BreakinBadApiQuoteInterface';
-import UseFetchStateInterface from '../../interfaces/UseFetchStateInterface';
+import MultipleCustomHooks from "../../../components/03-examples/MultipleCustomHooks";
+import BreakinBadApiQuoteInterface from '../../../interfaces/BreakinBadApiQuoteInterface';
+import UseFetchStateInterface from '../../../interfaces/UseFetchStateInterface';
 
 const mockUseFetchResultData: BreakinBadApiQuoteInterface[] = [{
   quote_id: "mock-quote_id",
@@ -22,7 +22,7 @@ const mockUseFetch: UseFetchStateInterface = {
   error: null,
 };
 
-jest.mock("../../hooks/useFetch", () => (
+jest.mock("../../../hooks/useFetch", () => (
   function useFetch(): UseFetchStateInterface {
     return mockUseFetch;
   }

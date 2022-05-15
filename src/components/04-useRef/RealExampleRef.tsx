@@ -8,16 +8,17 @@ const RealExampleRef = () => {
 
   return (
     <div>
-      <h1>RealExampleRef</h1>
+      <h1 data-testid="real-example-ref-h1" >RealExampleRef</h1>
       <hr />
 
-      { show && <MultipleCustomHooks /> }
+      { show && <MultipleCustomHooks data-testid="multiple-custom-hooks-component" /> }
 
       <button
         className="btn btn-primary mt-5"
         onClick={() => {
           setShow(!show);
         }}
+        data-testid="real-example-ref-show-button"
       >
         Show/Hide
       </button>

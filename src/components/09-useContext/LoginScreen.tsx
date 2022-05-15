@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import UserContextInterface from './interfaces/UserContextInterface';
+import UserContextInterface from '../../interfaces/UserContextInterface';
 import "./styles.css";
 import { UserContext } from './UserContext';
 

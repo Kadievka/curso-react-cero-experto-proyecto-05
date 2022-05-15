@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
-import UserContextInterface from './interfaces/UserContextInterface';
+import UserContextInterface from '../../interfaces/UserContextInterface';
 import { UserContext } from './UserContext';
 
 const NavBar = () => {

@@ -9,8 +9,8 @@ const Message = () => {
   useEffect(() => {
 
     const mouseMove = (e: any) => {
-      const coords = { x: e.x, y: e.y };
-      setCoords(coords)
+      const crds = { x: e.x, y: e.y };
+      setCoords(crds)
     }
 
     window.addEventListener('mousemove', mouseMove);

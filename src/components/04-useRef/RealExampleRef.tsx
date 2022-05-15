@@ -11,7 +11,7 @@ const RealExampleRef = () => {
       <h1 data-testid="real-example-ref-h1" >RealExampleRef</h1>
       <hr />
 
-      { show && <MultipleCustomHooks data-testid="multiple-custom-hooks-component" /> }
+      { show && <MultipleCustomHooks /> }
 
       <button
         className="btn btn-primary mt-5"

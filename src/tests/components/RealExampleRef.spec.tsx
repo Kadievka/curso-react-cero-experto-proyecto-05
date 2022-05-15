@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  act,
   cleanup,
   fireEvent,
   render,
@@ -21,12 +22,12 @@ describe('RealExampleRef', () => {
     const wrapper = render(<RealExampleRef />);
 
     const h1Element = screen.getByTestId("real-example-ref-h1");
-    const multipleCustomHooksComponent = screen.queryByTestId("multiple-custom-hooks-component");
+    const multipleCustomHoosH1Element = screen.queryByTestId("multiple-custom-hooks-h1");
 
     expect(wrapper.asFragment()).toMatchSnapshot();
 
     expect(h1Element.innerHTML.trim()).toBe("RealExampleRef");
-    expect(multipleCustomHooksComponent).toBe(null);
+    expect(multipleCustomHoosH1Element).toBe(null);
 
     wrapper.unmount();
 
@@ -36,14 +37,19 @@ describe('RealExampleRef', () => {
 
     const wrapper = render(<RealExampleRef />);
 
-    const multipleCustomHooksComponent = screen.queryByTestId("multiple-custom-hooks-component");
     const showButton = screen.getByTestId("real-example-ref-show-button");
 
     expect(wrapper.asFragment()).toMatchSnapshot();
 
-    fireEvent.click(showButton);
+    act( () => {
 
-    expect(multipleCustomHooksComponent).toBe(null);
+      fireEvent.click(showButton);
+
+    });
+
+    const multipleCustomHoosH1Element = screen.queryByTestId("multiple-custom-hooks-h1");
+
+    expect(multipleCustomHoosH1Element?.innerHTML.trim()).toBe("Breaking Bad Quotes");
 
     wrapper.unmount();
 

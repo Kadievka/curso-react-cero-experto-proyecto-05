@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react";
-import { useFetch } from "../../hooks/useFetch";
+import useFetch from "../../hooks/useFetch";
 
 const mockData = [{
   id: "mock-id",

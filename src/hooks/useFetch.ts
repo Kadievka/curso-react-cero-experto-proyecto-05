@@ -1,19 +1,7 @@
 import { useEffect, useState } from "react";
+import UseFetchStateInterface from "../interfaces/UseFetchStateInterface";
 
-export interface BreakinBadApiQuoteInterface {
-  quote_id: string
-  quote: string
-  author: string
-  series: string
-}
-
-export interface UseFetchStateInterface {
-  data: BreakinBadApiQuoteInterface[] | null,
-  loading: boolean,
-  error: null | string,
-}
-
-export const useFetch = (url?: string) => {
+export default function useFetch(url?: string): UseFetchStateInterface {
 
   const [state, setState] = useState<UseFetchStateInterface>({data: null, loading: true, error: null});
 

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useCounter } from '../../hooks/useCounter';
-import { useFetch } from '../../hooks/useFetch';
+import useFetch from "../../hooks/useFetch";
 import "./effects.css";
 
 
@@ -21,25 +21,26 @@ const MultipleCustomHooks = () => {
 
   return (
     <div>
-      <h1>Breaking Bad Quotes</h1>
+      <h1 data-testid="multiple-custom-hooks-h1">Breaking Bad Quotes</h1>
       <hr />
 
       {
         loading
         ?
-          <div className="alert alert-info text-center">
+          <div className="alert alert-info text-center" data-testid="multiple-custom-hooks-loading">
             Loading...
           </div>
         :
-        <blockquote className="blockquote text-right">
-          <p className="mb-6"> {quote} </p>
-          <footer className="blockquote-footer"> {author} </footer>
+        <blockquote className="blockquote text-right" data-testid="multiple-custom-hooks-block-quote">
+          <p className="mb-6" data-testid="multiple-custom-hooks-quote"> {quote} </p>
+          <footer className="blockquote-footer" data-testid="multiple-custom-hooks-author"> {author} </footer>
         </blockquote>
       }
 
       <button
         className="btn btn-primary m-3"
         onClick={decrement}
+        data-testid="multiple-custom-hooks-prev-button"
       >
         Anterior frase
       </button>
@@ -47,6 +48,7 @@ const MultipleCustomHooks = () => {
       <button
         className="btn btn-primary"
         onClick={increment}
+        data-testid="multiple-custom-hooks-next-button"
       >
         Siguiente frase
       </button>

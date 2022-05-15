@@ -6,10 +6,6 @@ export const Padre = () => {
   const numeros = [2, 4, 6, 8, 10];
   const [valor, setValor] = useState(0);
 
-  // const incrementar = ( num: number ) => {
-  //     setValor( valor + num )
-  // }
-
   const incrementar = useCallback(
     (num: number) => {
       setValor((v) => v + num);

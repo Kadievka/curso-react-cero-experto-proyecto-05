@@ -38,7 +38,7 @@ describe("Test useCounter hook", () => {
 
     const useFormHookResult = renderHook(() => useForm(mockFormValues));
 
-    const [ handleInputChange, resetAllValues ] = useFormHookResult.result.current;
+    const [ values, handleInputChange, resetAllValues ] = useFormHookResult.result.current;
 
     act(() => handleInputChange({
       target: {

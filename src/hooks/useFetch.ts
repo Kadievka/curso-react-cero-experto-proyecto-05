@@ -10,10 +10,10 @@ export interface BreakinBadApiQuoteInterface {
 export interface UseFetchStateInterface {
   data: BreakinBadApiQuoteInterface[] | null,
   loading: boolean,
-  error: any,
+  error: null | string,
 }
 
-export const useFetch = (url: string) => {
+export const useFetch = (url?: string) => {
 
   const [state, setState] = useState<UseFetchStateInterface>({data: null, loading: true, error: null});
 
@@ -21,7 +21,8 @@ export const useFetch = (url: string) => {
 
     setState({data: null, loading: true, error: null});
 
-    fetch( url )
+    if( url ) {
+      fetch( url )
       .then( resp => resp.json() )
       .then( data => {
 
@@ -29,9 +30,20 @@ export const useFetch = (url: string) => {
           loading: false,
           error: null,
           data: data,
-        })
+        });
 
-      });
+      }).catch( (error) => {
+
+        console.log(error);
+
+        setState({
+          loading: false,
+          error: "No se pudo cargar la info",
+          data: null,
+        });
+
+      })
+    }
 
   }, [url]);
 

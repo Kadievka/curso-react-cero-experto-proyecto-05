@@ -1,13 +1,7 @@
 import React from "react";
-import TodoStateInterface from "../../interfaces/TodoStateInterface";
+import TodoListPropsInterface from "../../interfaces/TodoListPropsInterface";
 import "./styles.css";
 import TodoListItem from "./TodoListItem";
-
-export interface TodoListPropsInterface {
-  todos: TodoStateInterface[];
-  handleComplete: Function;
-  handleDelete: Function;
-}
 
 const TodoList = ({
   todos,

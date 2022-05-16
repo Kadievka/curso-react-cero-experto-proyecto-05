@@ -1,14 +1,10 @@
 import React from 'react'
 import { useForm } from '../../hooks/useForm';
+import TodoAddPropsInterface from '../../interfaces/TodoAddPropsInterface';
 import TodoStateInterface from '../../interfaces/TodoStateInterface';
 import "./styles.css";
 
-export interface TodoAddPropsInterface {
-  handleAdd: Function;
-
-}
-
-const TodoAdd = ({handleAdd}: TodoAddPropsInterface) => {
+const TodoAdd = ({ handleAdd }: TodoAddPropsInterface) => {
 
   const initialFormState = {
     description: "",
@@ -39,6 +35,7 @@ const TodoAdd = ({handleAdd}: TodoAddPropsInterface) => {
         <input
           autoComplete="off"
           className="form-control"
+          data-testid="todo-add-input"
           name="description"
           onChange={handleInputChange}
           placeholder="Aprender ..."
@@ -47,6 +44,7 @@ const TodoAdd = ({handleAdd}: TodoAddPropsInterface) => {
         />
         <button
           className="btn btn-outline-primary mt-1 w-100"
+          data-testid="todo-add-submit-button"
           type="submit"
         >
           Agregar

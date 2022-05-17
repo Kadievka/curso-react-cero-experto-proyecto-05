@@ -55,7 +55,7 @@ describe('LoginScreen tests', () => {
 
   });
 
-  it('should show the component successfully when there is not an user', () => {
+  it('should show the component successfully when there is not an user, then click the login button a set other user', () => {
 
     const useStateHook = renderHook(() => useState<UserInterface>());
 

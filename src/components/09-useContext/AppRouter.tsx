@@ -15,7 +15,7 @@ const AppRouter = () => {
       <div>
 
         <NavBar />
-        <div className="container">
+        <div className="container" data-testid="app-router-container">
           <Routes>
 
             <Route path="/" element={ <HomeScreen /> } />

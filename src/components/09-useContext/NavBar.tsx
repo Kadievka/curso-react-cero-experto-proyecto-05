@@ -8,7 +8,7 @@ const NavBar = () => {
   const { user, setUser } = useContext(UserContext) as UserContextInterface ;
 
   return (
-    <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-sm navbar-dark bg-dark" data-testid="navbar">
       <div className="container-fluid">
         <NavLink className="navbar-brand" to="/">useContent</NavLink>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -21,13 +21,13 @@ const NavBar = () => {
               <NavLink
                 to="/login"
                 className="nav-item nav-link"
-                onClick={() => setUser(null)
-                }
+                onClick={() => setUser(null)}
+                data-testid="navbar-logout-button"
               >
                 Logout
               </NavLink>
               :
-              <NavLink className="nav-item nav-link" to="/login">Login</NavLink>
+              <NavLink className="nav-item nav-link" to="/login" data-testid="navbar-login-button">Login</NavLink>
             }
           </div>
         </div>

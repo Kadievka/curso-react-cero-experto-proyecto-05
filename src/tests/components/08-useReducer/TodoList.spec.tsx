@@ -8,7 +8,7 @@ import TodoList from '../../../components/08-useReducer/TodoList';
 import TodoListPropsInterface from '../../../interfaces/TodoListPropsInterface';
 
 
-describe('TodoListItem tests', () => {
+describe('TodoList tests', () => {
 
   beforeEach( () => {
     jest.clearAllMocks();

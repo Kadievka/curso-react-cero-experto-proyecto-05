@@ -9,7 +9,7 @@ import TodoAdd from '../../../components/08-useReducer/TodoAdd';
 import TodoAddPropsInterface from '../../../interfaces/TodoAddPropsInterface';
 
 
-describe('TodoListItem tests', () => {
+describe('TodoAdd tests', () => {
 
   beforeEach( () => {
     jest.clearAllMocks();

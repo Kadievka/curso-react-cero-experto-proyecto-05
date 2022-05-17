@@ -12,10 +12,10 @@ const HomeScreen = () => {
 
   return (
     <div>
-      <h1>HomeScreen</h1>
+      <h1 data-testid="home-screen-titile">HomeScreen</h1>
       <hr />
 
-      <pre>{ JSON.stringify(user, null, 3) }</pre>
+      <pre data-testid="home-screen-content" >{ JSON.stringify(user, null, 3) }</pre>
 
     </div>
   )

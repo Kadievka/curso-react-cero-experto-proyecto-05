@@ -8,7 +8,7 @@ import {
 import TodoApp from '../../../components/08-useReducer/TodoApp';
 
 
-describe('TodoListItem tests', () => {
+describe('TodoApp tests', () => {
 
   beforeEach( () => {
     jest.clearAllMocks();

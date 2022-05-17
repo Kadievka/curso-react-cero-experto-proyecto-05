@@ -6,7 +6,7 @@ export interface SmallInputInterface {
 
 const Small = memo(({ value }: SmallInputInterface) => {
 
-  console.log("Me volví a llamar :'(");
+  // console.log("Me volví a llamar :'(");
 
   return (
     <small> { value } </small>

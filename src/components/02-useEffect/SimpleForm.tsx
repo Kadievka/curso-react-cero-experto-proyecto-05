@@ -12,7 +12,7 @@ const SimpleForm = () => {
   const { name, email } = formState;
 
   const handleInputChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(target.name, target.value);
+    // console.log(target.name, target.value);
     setFormState(() => ({
       ...formState,
       [target.name]: target.value

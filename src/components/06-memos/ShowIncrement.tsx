@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 
 const ShowIncrement = memo(({increment}: {increment: Function}) => {
 
-  console.log("Me volví a generar :( ");
+  // console.log("Me volví a generar :( ");
 
   return (
     <button

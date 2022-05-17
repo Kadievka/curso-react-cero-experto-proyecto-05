@@ -14,7 +14,7 @@ const FormWithCustomHook = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log(formValues)
+    // console.log(formValues)
   }
 
   return (
